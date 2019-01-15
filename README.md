@@ -1,2 +1,2 @@
-#Sinema Otomasyonu (C#)
+Sinema Otomasyonu C#
 
