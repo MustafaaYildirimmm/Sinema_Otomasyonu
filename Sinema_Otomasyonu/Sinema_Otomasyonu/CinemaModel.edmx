@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SinemaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kullanici Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="E mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Parola" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Bilet">
+          <Key>
+            <PropertyRef Name="BiletId" />
+          </Key>
+          <Property Name="BiletId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmAdi" Type="nvarchar(max)" />
+          <Property Name="KoltukNumarasi" Type="nvarchar(max)" />
+          <Property Name="SalonNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SeansSaati" Type="nvarchar" MaxLength="50" />
+          <Property Name="BiletTipi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ucret" Type="int" />
+          <Property Name="mstAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="mstSoyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="mstTelefon" Type="nvarchar" MaxLength="50" />
+          <Property Name="TarihSaat" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="FilmId" />
+          </Key>
+          <Property Name="FilmId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmAdi" Type="nvarchar(max)" />
+          <Property Name="FilmVizyonTarihi" Type="date" />
+          <Property Name="FilmYonetmen" Type="nvarchar" MaxLength="50" />
+          <Property Name="FilmOyuncu" Type="nvarchar(max)" />
+          <Property Name="FilmDili" Type="nvarchar" MaxLength="50" />
+          <Property Name="FilmSuresi" Type="int" />
+          <Property Name="FilmTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="FilmResmi" Type="image" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="E mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kullanici Adi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Parola" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seans">
+          <Key>
+            <PropertyRef Name="SeansId" />
+          </Key>
+          <Property Name="SeansId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalonId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FilmAdi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tarihi" Type="date" Nullable="false" />
+          <Property Name="Saati" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BitisSaati" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="SinemaModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bilet" EntityType="Self.Bilet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Film" EntityType="Self.Film" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seans" EntityType="Self.Seans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="SinemaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Film" EntityType="SinemaModel.Film" />
+          <EntitySet Name="Seans" EntityType="SinemaModel.Seans" />
+          <EntitySet Name="Admin" EntityType="SinemaModel.Admin" />
+          <EntitySet Name="Bilet" EntityType="SinemaModel.Bilet" />
+          <EntitySet Name="Kullanici" EntityType="SinemaModel.Kullanici" />
+        </EntityContainer>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="FilmId" />
+          </Key>
+          <Property Name="FilmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FilmVizyonTarihi" Type="DateTime" Precision="0" />
+          <Property Name="FilmYonetmen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilmOyuncu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FilmDili" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilmSuresi" Type="Int32" />
+          <Property Name="FilmTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilmResmi" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Seans">
+          <Key>
+            <PropertyRef Name="SeansId" />
+          </Key>
+          <Property Name="SeansId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalonId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FilmAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tarihi" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="Saati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BitisSaati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kullanici_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bilet">
+          <Key>
+            <PropertyRef Name="BiletId" />
+          </Key>
+          <Property Name="BiletId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KoltukNumarasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SalonNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SeansSaati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BiletTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ucret" Type="Int32" />
+          <Property Name="mstAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mstSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mstTelefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TarihSaat" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kullanici_Adi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Parola" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SinemaModelStoreContainer" CdmEntityContainer="SinemaEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SinemaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Film">
+            <EntityTypeMapping TypeName="SinemaModel.Film">
+              <MappingFragment StoreEntitySet="Film">
+                <ScalarProperty Name="FilmResmi" ColumnName="FilmResmi" />
+                <ScalarProperty Name="FilmTuru" ColumnName="FilmTuru" />
+                <ScalarProperty Name="FilmSuresi" ColumnName="FilmSuresi" />
+                <ScalarProperty Name="FilmDili" ColumnName="FilmDili" />
+                <ScalarProperty Name="FilmOyuncu" ColumnName="FilmOyuncu" />
+                <ScalarProperty Name="FilmYonetmen" ColumnName="FilmYonetmen" />
+                <ScalarProperty Name="FilmVizyonTarihi" ColumnName="FilmVizyonTarihi" />
+                <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seans">
+            <EntityTypeMapping TypeName="SinemaModel.Seans">
+              <MappingFragment StoreEntitySet="Seans">
+                <ScalarProperty Name="BitisSaati" ColumnName="BitisSaati" />
+                <ScalarProperty Name="Saati" ColumnName="Saati" />
+                <ScalarProperty Name="Tarihi" ColumnName="Tarihi" />
+                <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+                <ScalarProperty Name="SalonId" ColumnName="SalonId" />
+                <ScalarProperty Name="SeansId" ColumnName="SeansId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="SinemaModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Parola" ColumnName="Parola" />
+                <ScalarProperty Name="E_mail" ColumnName="E mail" />
+                <ScalarProperty Name="Kullanici_Adi" ColumnName="Kullanici Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bilet">
+            <EntityTypeMapping TypeName="SinemaModel.Bilet">
+              <MappingFragment StoreEntitySet="Bilet">
+                <ScalarProperty Name="TarihSaat" ColumnName="TarihSaat" />
+                <ScalarProperty Name="mstTelefon" ColumnName="mstTelefon" />
+                <ScalarProperty Name="mstSoyad" ColumnName="mstSoyad" />
+                <ScalarProperty Name="mstAd" ColumnName="mstAd" />
+                <ScalarProperty Name="Ucret" ColumnName="Ucret" />
+                <ScalarProperty Name="BiletTipi" ColumnName="BiletTipi" />
+                <ScalarProperty Name="SeansSaati" ColumnName="SeansSaati" />
+                <ScalarProperty Name="SalonNo" ColumnName="SalonNo" />
+                <ScalarProperty Name="KoltukNumarasi" ColumnName="KoltukNumarasi" />
+                <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+                <ScalarProperty Name="BiletId" ColumnName="BiletId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="SinemaModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="Parola" ColumnName="Parola" />
+                <ScalarProperty Name="Kullanici_Adi" ColumnName="Kullanici Adi" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="E_mail" ColumnName="E mail" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

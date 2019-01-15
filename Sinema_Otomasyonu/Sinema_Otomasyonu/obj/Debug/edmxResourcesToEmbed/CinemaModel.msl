@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SinemaModelStoreContainer" CdmEntityContainer="SinemaEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SinemaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Film">
+      <EntityTypeMapping TypeName="SinemaModel.Film">
+        <MappingFragment StoreEntitySet="Film">
+          <ScalarProperty Name="FilmResmi" ColumnName="FilmResmi" />
+          <ScalarProperty Name="FilmTuru" ColumnName="FilmTuru" />
+          <ScalarProperty Name="FilmSuresi" ColumnName="FilmSuresi" />
+          <ScalarProperty Name="FilmDili" ColumnName="FilmDili" />
+          <ScalarProperty Name="FilmOyuncu" ColumnName="FilmOyuncu" />
+          <ScalarProperty Name="FilmYonetmen" ColumnName="FilmYonetmen" />
+          <ScalarProperty Name="FilmVizyonTarihi" ColumnName="FilmVizyonTarihi" />
+          <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+          <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seans">
+      <EntityTypeMapping TypeName="SinemaModel.Seans">
+        <MappingFragment StoreEntitySet="Seans">
+          <ScalarProperty Name="BitisSaati" ColumnName="BitisSaati" />
+          <ScalarProperty Name="Saati" ColumnName="Saati" />
+          <ScalarProperty Name="Tarihi" ColumnName="Tarihi" />
+          <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+          <ScalarProperty Name="SalonId" ColumnName="SalonId" />
+          <ScalarProperty Name="SeansId" ColumnName="SeansId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="SinemaModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="E_mail" ColumnName="E mail" />
+          <ScalarProperty Name="Kullanici_Adi" ColumnName="Kullanici Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bilet">
+      <EntityTypeMapping TypeName="SinemaModel.Bilet">
+        <MappingFragment StoreEntitySet="Bilet">
+          <ScalarProperty Name="TarihSaat" ColumnName="TarihSaat" />
+          <ScalarProperty Name="mstTelefon" ColumnName="mstTelefon" />
+          <ScalarProperty Name="mstSoyad" ColumnName="mstSoyad" />
+          <ScalarProperty Name="mstAd" ColumnName="mstAd" />
+          <ScalarProperty Name="Ucret" ColumnName="Ucret" />
+          <ScalarProperty Name="BiletTipi" ColumnName="BiletTipi" />
+          <ScalarProperty Name="SeansSaati" ColumnName="SeansSaati" />
+          <ScalarProperty Name="SalonNo" ColumnName="SalonNo" />
+          <ScalarProperty Name="KoltukNumarasi" ColumnName="KoltukNumarasi" />
+          <ScalarProperty Name="FilmAdi" ColumnName="FilmAdi" />
+          <ScalarProperty Name="BiletId" ColumnName="BiletId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="SinemaModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="Kullanici_Adi" ColumnName="Kullanici Adi" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="E_mail" ColumnName="E mail" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

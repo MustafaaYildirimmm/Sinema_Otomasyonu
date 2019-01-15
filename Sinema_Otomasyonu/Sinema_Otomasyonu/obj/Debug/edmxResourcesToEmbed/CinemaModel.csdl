@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SinemaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="SinemaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Film" EntityType="SinemaModel.Film" />
+    <EntitySet Name="Seans" EntityType="SinemaModel.Seans" />
+    <EntitySet Name="Admin" EntityType="SinemaModel.Admin" />
+    <EntitySet Name="Bilet" EntityType="SinemaModel.Bilet" />
+    <EntitySet Name="Kullanici" EntityType="SinemaModel.Kullanici" />
+  </EntityContainer>
+  <EntityType Name="Film">
+    <Key>
+      <PropertyRef Name="FilmId" />
+    </Key>
+    <Property Name="FilmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FilmAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FilmVizyonTarihi" Type="DateTime" Precision="0" />
+    <Property Name="FilmYonetmen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FilmOyuncu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FilmDili" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FilmSuresi" Type="Int32" />
+    <Property Name="FilmTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FilmResmi" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Seans">
+    <Key>
+      <PropertyRef Name="SeansId" />
+    </Key>
+    <Property Name="SeansId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalonId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FilmAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tarihi" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="Saati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BitisSaati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kullanici_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bilet">
+    <Key>
+      <PropertyRef Name="BiletId" />
+    </Key>
+    <Property Name="BiletId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FilmAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KoltukNumarasi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalonNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SeansSaati" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BiletTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ucret" Type="Int32" />
+    <Property Name="mstAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mstSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mstTelefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TarihSaat" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kullanici_Adi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
